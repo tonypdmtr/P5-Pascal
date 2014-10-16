@@ -1,0 +1,47 @@
+#!/bin/bash
+#
+# Convert file line endings
+#
+# This is a script version of "flip" for systems where this utility
+# is not available.
+#
+# The format of the call is:
+#
+# flip [-u|-m] <file>
+#
+# Where:
+#
+#    -u    Means to change line endings to Unix style
+#    -m    Means to change line endings to DOS style
+#    file  Is the file to convert
+#
+
+if [ -z "$1" ]
+then
+   echo "*** Error: Missing parameter 1"
+   exit 1
+fi
+
+if [ -z "$2" ]
+then
+   echo "*** Error: Missing parameter 2"
+   exit 1
+fi
+
+if [ $1 = "-u" ]
+then
+
+   ueoln < $2 > tmp
+   mv tmp $2
+
+elif [ $1 = "-m" ]
+then
+
+   deoln < $2 > tmp
+   mv tmp $2
+
+else
+
+   echo "*** No ending type specified"
+
+fi
