@@ -1,9 +1,9 @@
-P5 Pascal interpreter vs. 1.0
+P5 Pascal interpreter vs. 1.2
 
 Assembling/loading program
 Running program
 
-P5 Pascal interpreter vs. 1.0
+P5 Pascal interpreter vs. 1.2
 
 Assembling/loading program
 Running program
@@ -28,11 +28,15 @@ Real default output field
          1111111111222222222233333333334
 1234567890123456789012345678901234567890
  1.20000000000000e+000
+Note that the exponent character 'e' or 'E' is implementation
+defined as well as the number of exponent digits
 Boolean default output field
          1111111111222222222233333333334
 1234567890123456789012345678901234567890
 false
  true
+Note that the upper or lower case state of the characters in
+'true' and 'false' are implementation defined
 Char default output field
          1111111111222222222233333333334
 1234567890123456789012345678901234567890

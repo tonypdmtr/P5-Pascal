@@ -1,0 +1,33 @@
+P5 Pascal compiler vs. 1.2
+
+
+     1       40 { 
+     2       40  
+     3       40 PRT test 55: Reverse order between var and function 
+     4       40  
+     5       40 } 
+     6       40  
+     7       40 program iso7185prt0055(output); 
+     8       40  
+     9       40 function x: integer; begin x := 1 end; 
+    10        8  
+    11        8 var y: integer; 
+    11   ****     ^6
+    12       36  
+    13       36 begin 
+    14        8  
+    15        8    writeln(x, y) 
+    16       19  
+    17       19 end. 
+    17   ****      ^6,14,18,17,6,13
+
+Errors in program: 7
+
+Error numbers in listing:
+-------------------------
+  6  Illegal symbol
+ 13  'end' expected
+ 14  ';' expected
+ 17  'begin' expected
+ 18  Error in declaration part
+
