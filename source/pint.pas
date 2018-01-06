@@ -248,7 +248,7 @@ const
       dodmpsto    = false;    { dump storage area specs }
       dotrcrot    = false;    { trace routine executions }
       dotrcins    = false;    { trace instruction executions }
-      dopmd       = true{false};    { perform post-mortem dump on error }
+      dopmd       = false;    { perform post-mortem dump on error }
       dosrclin    = true;     { add source line sets to code }
       dotrcsrc    = false;    { trace source line executions (requires dosrclin) }
       dodmpspc    = false;    { dump heap space after execution }
@@ -265,7 +265,7 @@ const
 
       majorver   = 1; { major version number }
       minorver   = 2; { minor version number }
-      experiment = true; { is version experimental? }
+      experiment = false; { is version experimental? }
 
 type
       { These equates define the instruction layout. I have choosen a 32 bit
@@ -2171,8 +2171,8 @@ begin (*callsp*)
                            else begin
                                 filstate[fn] := fread;
                                 reset(filtable[fn]);
-                           end;
-                           filbuff[fn] := false
+                                filbuff[fn] := false
+                           end
                       end;
            23(*rwf*): begin popadr(ad); valfil(ad); fn := store[ad];
                            if fn <= prrfn then case fn of
@@ -2183,7 +2183,7 @@ begin (*callsp*)
                               end
                            else begin
                                 filstate[fn] := fwrite;
-                                rewrite(filtable[fn]);
+                                rewrite(filtable[fn])
                            end
                       end;
            24(*wrb*): begin popint(w); popint(i); b := i <> 0; popadr(ad);
